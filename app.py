@@ -49,9 +49,9 @@ model = load_model()
 # Sesuaikan dengan jumlah dan nama kelas pada datasetmu
 CLASS_NAMES = {
     0: 'Kerusakan Bangunan Ringan ',
-    1: 'Kerusakan Jalan Ringan',
-    2: 'Bangunan Rusak Berat',
-    3: 'Jalan Rusak Berat',
+    1: 'Kerusakan Bangunan Jalan Ringan',
+    2: 'Bangunan dan Jalan Rusak Berat',
+    3: 'Jalan dan Bangunan Rusak Berat',
     4: 'Sudah Menjadi Puing-Puing'
 }
 
