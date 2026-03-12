@@ -51,7 +51,7 @@ CLASS_NAMES = {
     0: 'Bangunan dan Jalan Rusak Berat ',
     1: 'Jalan dan Bangunan Rusak Berat',
     2: 'Kerusakan Bangunan Ringan',
-    3: 'Kerusakan Bangunan Jalan Ringan',
+    3: 'Kerusakan Bangunan dan Jalan Ringan',
     4: 'Sudah Menjadi Puing-Puing'
 }
 
