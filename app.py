@@ -66,7 +66,7 @@ st.sidebar.markdown("---")
 st.sidebar.write("Dibuat menggunakan **Streamlit** dan **TensorFlow/Keras** oleh Dzikra Yuhasyra, S.T., M.Agr. Semoga bermanfaat!")
 
 # --- HALAMAN UTAMA ---
-st.title("🏢 Sistem Deteksi Kerusakan Bangunan dan Jalan")
+st.title("🏢 Classify the Damage: Sistem Deteksi Kerusakan Bangunan dan Jalan Akibat Bencana oleh Dzikra Yuhasyra, S.T., M.Agr.")
 st.write("Unggah foto bangunan dan jalan untuk menganalisis kondisinya.")
 
 # Widget untuk mengunggah gambar
