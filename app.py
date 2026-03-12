@@ -1,5 +1,6 @@
 import streamlit as st
 import tensorflow as tf
+import streamlit.components.v1 as components
 import numpy as np
 from PIL import Image
 
