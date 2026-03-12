@@ -6,7 +6,7 @@ from PIL import Image
 
 # Konfigurasi Halaman (Harus dipanggil pertama kali)
 st.set_page_config(
-    page_title="ClassifyTheDamage: Deteksi Kerusakan Bangunan dan Jalan Akibat Bencara",
+    page_title="ClassifyTheDamage: Deteksi Kerusakan Bangunan dan Jalan Akibat Bencana",
     page_icon="🏢",
     layout="centered"
 )
@@ -26,11 +26,11 @@ components.html(
 # Fungsi untuk memuat model (di-cache agar tidak dimuat ulang setiap kali ada interaksi)
 @st.cache_resource
 def load_model():
-    # Sesuaikan nama file dengan modelmu
-    model = tf.keras.models.load_model('DamagedBuilding.keras')
+    # Load menggunakan format .h5
+    model = tf.keras.models.load_model('model_kerusakan.h5', compile=False)
     return model
 
-model = tf.keras.models.load_model('DamagedBuilding.keras', compile=False)
+model = load_model()
 
 # Dictionary untuk memetakan output prediksi ke label yang mudah dibaca
 # Sesuaikan dengan jumlah dan nama kelas pada datasetmu
