@@ -26,8 +26,19 @@ components.html(
 # Fungsi untuk memuat model (di-cache agar tidak dimuat ulang setiap kali ada interaksi)
 @st.cache_resource
 def load_model():
-    # Load file .keras
-    model = tf.keras.models.load_model('DamagedBuilding2.keras', compile=False)
+    # 1. Ganti tulisan di bawah dengan ID File Google Drive milikmu
+    file_id = '1R7VJtTkWelp6_zINseBcPJ741-M4iEw6' 
+    
+    url = f'https://drive.google.com/uc?id={file_id}'
+    output = 'Model_Utuh.keras' # Nama file saat disimpan di server
+    
+    # 2. Server akan mengecek: Kalau file belum ada, download dari Drive!
+    if not os.path.exists(output):
+        with st.spinner('Mengunduh model dari database untuk pertama kalinya... (Mohon tunggu)'):
+            gdown.download(url, output, quiet=False)
+    
+    # 3. Load model yang sudah utuh
+    model = tf.keras.models.load_model(output, compile=False)
     return model
 
 model = load_model()
