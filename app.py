@@ -10,6 +10,13 @@ st.set_page_config(
     layout="centered"
 )
 
+st.markdown(
+    """
+    <meta name="dicoding:email" content="dzikra.yuhasyra9a@gmail.com">
+    """,
+    unsafe_allow_html
+)
+
 # Fungsi untuk memuat model (di-cache agar tidak dimuat ulang setiap kali ada interaksi)
 @st.cache_resource
 def load_model():
