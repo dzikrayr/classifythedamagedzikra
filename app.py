@@ -1,8 +1,8 @@
 import os
 os.environ["TF_USE_LEGACY_KERAS"] = "1"
 import streamlit as st
-import tensorflow as tf
 import streamlit.components.v1 as components
+import tf_keras as keras
 import numpy as np
 from PIL import Image
 
