@@ -3,6 +3,8 @@ import streamlit.components.v1 as components
 import tensorflow as tf  # Kembali ke TF normal
 import numpy as np
 from PIL import Image
+import os       
+import gdown
 
 # Konfigurasi Halaman (Harus dipanggil pertama kali)
 st.set_page_config(
