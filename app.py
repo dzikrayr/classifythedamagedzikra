@@ -29,10 +29,10 @@ components.html(
 @st.cache_resource
 def load_model():
     # 1. Ganti tulisan di bawah dengan ID File Google Drive milikmu
-    file_id = '1U3KU9IrPJVUXP4qUxzaGbOECu6aSNZA9' 
+    file_id = '17mgZwrKDk-ydDupSChoi-X1-9Iak1IfI' 
     
     url = f'https://drive.google.com/uc?id={file_id}'
-    output = 'DamagedBuilding2New.keras' # Nama file saat disimpan di server
+    output = 'DamagedBuildingFinal.keras' # Nama file saat disimpan di server
     
     # 2. Server akan mengecek: Kalau file belum ada, download dari Drive!
     if not os.path.exists(output):
