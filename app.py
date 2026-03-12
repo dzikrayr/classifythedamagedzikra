@@ -1,8 +1,6 @@
-import os
-os.environ["TF_USE_LEGACY_KERAS"] = "1"
 import streamlit as st
 import streamlit.components.v1 as components
-import tensorflow as tf
+import tensorflow as tf  # Kembali ke TF normal
 import numpy as np
 from PIL import Image
 
@@ -28,8 +26,8 @@ components.html(
 # Fungsi untuk memuat model (di-cache agar tidak dimuat ulang setiap kali ada interaksi)
 @st.cache_resource
 def load_model():
-    # Load menggunakan format .h5
-    model = tf.keras.models.load_model('model_kerusakan.h5', compile=False)
+    # Load file .keras
+    model = tf.keras.models.load_model('DamagedBuilding.keras', compile=False)
     return model
 
 model = load_model()
