@@ -63,7 +63,7 @@ st.sidebar.info(
     "dari sebuah foto."
 )
 st.sidebar.markdown("---")
-st.sidebar.write("Dibuat menggunakan **Streamlit** dan **TensorFlow/Keras**.")
+st.sidebar.write("Dibuat menggunakan **Streamlit** dan **TensorFlow/Keras** oleh Dzikra Yuhasyra, S.T., M.Agr. Semoga bermanfaat!")
 
 # --- HALAMAN UTAMA ---
 st.title("🏢 Sistem Deteksi Kerusakan Bangunan dan Jalan")
