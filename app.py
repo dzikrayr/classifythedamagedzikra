@@ -48,10 +48,10 @@ model = load_model()
 # Dictionary untuk memetakan output prediksi ke label yang mudah dibaca
 # Sesuaikan dengan jumlah dan nama kelas pada datasetmu
 CLASS_NAMES = {
-    0: 'Kerusakan Bangunan Ringan ',
-    1: 'Kerusakan Bangunan Jalan Ringan',
-    2: 'Bangunan dan Jalan Rusak Berat',
-    3: 'Jalan dan Bangunan Rusak Berat',
+    0: 'Bangunan dan Jalan Rusak Berat ',
+    1: 'Jalan dan Bangunan Rusak Berat',
+    2: 'Kerusakan Bangunan Ringan',
+    3: 'Kerusakan Bangunan Jalan Ringan',
     4: 'Sudah Menjadi Puing-Puing'
 }
 
