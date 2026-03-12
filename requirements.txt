@@ -1,6 +1,5 @@
 streamlit
-tensorflow
-tf-keras
+tensorflow==2.15.0
 Pillow
 numpy
 h5py
