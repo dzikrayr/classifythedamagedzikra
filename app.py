@@ -1,9 +1,9 @@
 import streamlit as st
 import streamlit.components.v1 as components
-import tensorflow as tf  # Kembali ke TF normal
+import tensorflow as tf
 import numpy as np
 from PIL import Image
-import os       
+import os
 import gdown
 
 # Konfigurasi Halaman (Harus dipanggil pertama kali)
@@ -46,9 +46,8 @@ def load_model():
 model = load_model()
 
 # Dictionary untuk memetakan output prediksi ke label yang mudah dibaca
-# Sesuaikan dengan jumlah dan nama kelas pada datasetmu
 CLASS_NAMES = {
-    0: 'Bangunan Rusak Berat ',
+    0: 'Bangunan Rusak Berat',
     1: 'Jalan Rusak Berat',
     2: 'Kerusakan Bangunan Ringan atau Tidak Ada',
     3: 'Kerusakan Jalan Ringan atau Tidak Ada',
@@ -66,7 +65,7 @@ st.sidebar.markdown("---")
 st.sidebar.write("Dibuat menggunakan **Streamlit** dan **TensorFlow/Keras** oleh Dzikra Yuhasyra, S.T., M.Agr. Semoga bermanfaat!")
 
 # --- HALAMAN UTAMA ---
-st.title("🏢 Classify the Damage: Sistem Deteksi Kerusakan Bangunan dan Jalan Akibat Bencana oleh Dzikra Yuhasyra, S.T., M.Agr.")
+st.title("🏢 Classify the Damage: Sistem Deteksi Kerusakan Bangunan dan Jalan")
 st.write("Unggah foto bangunan dan jalan untuk menganalisis kondisinya.")
 
 # Widget untuk mengunggah gambar
@@ -89,23 +88,33 @@ if uploaded_file is not None:
         if st.button("Analisis Gambar 🔍"):
             with st.spinner('Sedang memproses gambar...'):
                 # Preprocessing Gambar
-                # Sesuaikan target_size dengan input modelmu (misal: 224x224)
                 img_resized = image.resize((150, 150)) 
                 img_array = tf.keras.preprocessing.image.img_to_array(img_resized)
                 img_array = np.expand_dims(img_array, axis=0)
-                # Normalisasi jika saat training kamu menormalisasi data (misal / 255.0)
                 img_array = img_array / 255.0 
 
                 # Prediksi
                 predictions = model.predict(img_array)
-                predicted_class = np.argmax(predictions[0])
-                confidence = np.max(predictions[0]) * 100
+                probs = predictions[0] # Ambil array probabilitas
+                
+                predicted_class = np.argmax(probs)
+                confidence = np.max(probs) * 100
 
-                # Menampilkan Hasil
+                # Menampilkan Hasil Utama
                 label_hasil = CLASS_NAMES.get(predicted_class, "Tidak diketahui")
                 
                 st.success(f"**Klasifikasi:** {label_hasil}")
-                st.info(f"**Tingkat Keyakinan (Confidence):** {confidence:.2f}%")
+                st.info(f"**Tingkat Keyakinan:** {confidence:.2f}%")
                 
-                # Progress bar untuk visualisasi confidence
-                st.progress(int(confidence))
+                # --- VISUALISASI PROBABILITAS SEMUA KELAS ---
+                st.divider()
+                st.write("**Detail Probabilitas Kelas:**")
+                
+                for i in range(len(CLASS_NAMES)):
+                    class_name = CLASS_NAMES[i]
+                    prob_value = float(probs[i])
+                    
+                    # Tampilkan nama kelas dan persentasenya
+                    st.caption(f"{class_name} ({prob_value * 100:.2f}%)")
+                    # Tampilkan bar grafik
+                    st.progress(prob_value)
