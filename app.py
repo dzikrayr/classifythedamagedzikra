@@ -8,7 +8,7 @@ import gdown
 
 # Konfigurasi Halaman (Harus dipanggil pertama kali)
 st.set_page_config(
-    page_title="ClassifyTheDamage: Deteksi Kerusakan Bangunan dan Jalan Akibat Bencana",
+    page_title="Classify The Damage: Deteksi Kerusakan Bangunan dan Jalan Akibat Bencana",
     page_icon="🏢",
     layout="centered"
 )
@@ -29,10 +29,10 @@ components.html(
 @st.cache_resource
 def load_model():
     # 1. Ganti tulisan di bawah dengan ID File Google Drive milikmu
-    file_id = '17mgZwrKDk-ydDupSChoi-X1-9Iak1IfI' 
+    file_id = '1w8guY2MftZBA6GHqJKz0W8CDt6uBlyfP' 
     
     url = f'https://drive.google.com/uc?id={file_id}'
-    output = 'DamagedBuildingFinal.keras' # Nama file saat disimpan di server
+    output = 'ModelFinal.keras' # Nama file saat disimpan di server
     
     # 2. Server akan mengecek: Kalau file belum ada, download dari Drive!
     if not os.path.exists(output):
