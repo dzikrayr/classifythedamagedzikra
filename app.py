@@ -27,7 +27,7 @@ components.html(
 @st.cache_resource
 def load_model():
     # Load file .keras
-    model = tf.keras.models.load_model('DamagedBuilding.keras', compile=False)
+    model = tf.keras.models.load_model('DamagedBuilding2.keras', compile=False)
     return model
 
 model = load_model()
