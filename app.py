@@ -30,7 +30,7 @@ def load_model():
     model = tf.keras.models.load_model('DamagedBuilding.keras')
     return model
 
-model = load_model()
+model = tf.keras.models.load_model('DamagedBuilding.keras', compile=False)
 
 # Dictionary untuk memetakan output prediksi ke label yang mudah dibaca
 # Sesuaikan dengan jumlah dan nama kelas pada datasetmu
