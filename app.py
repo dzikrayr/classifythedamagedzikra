@@ -10,11 +10,16 @@ st.set_page_config(
     layout="centered"
 )
 
-st.markdown(
+components.html(
     """
-    <meta name="dicoding:email" content="dzikra.yuhasyra9a@gmail.com">
+    <script>
+        const meta = window.parent.document.createElement('meta');
+        meta.name = "dicoding:email";
+        meta.content = "dzikra.yuhasyra9a@gmail.com";
+        window.parent.document.getElementsByTagName('head')[0].appendChild(meta);
+    </script>
     """,
-    unsafe_allow_html
+    width=0, height=0
 )
 
 # Fungsi untuk memuat model (di-cache agar tidak dimuat ulang setiap kali ada interaksi)
